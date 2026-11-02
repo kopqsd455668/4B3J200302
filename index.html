@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音牆與地下室 - 樂團文化誌</title>
+    <style>
+        /* CSS 樣式設定 */
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --accent-color: #ff3366; /* 搖滾粉紅/紅橘色調 */
+            --secondary-color: #00ffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 導覽列 */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            border-bottom: 1px solid #333;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* 主視覺 Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(255, 51, 102, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            color: #ccc;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #e02e5b;
+            transform: scale(1.05);
+        }
+
+        /* 內容區塊 */
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .card-content p {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #0a0a0a;
+            color: #666;
+            border-top: 1px solid #222;
+            margin-top: 4rem;
+        }
+
+        /* 響應式調整 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            nav ul {
+                display: none; /* 簡化版型，行動裝置可後續加 JavaScript 展開選單 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <header>
+        <div class="logo">BAND CULTURE</div>
+        <nav>
+            <ul>
+                <li><a href="#about">文化起源</a></li>
+                <li><a href="#scenes">現場演出</a></li>
+                <li><a href="#gear">器材解密</a></li>
+                <li><a href="#contact">聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主視覺 Banner -->
+    <section class="hero">
+        <h1>音箱的震動，靈魂的共鳴</h1>
+        <p>探索獨立音樂、Livehouse 現場、地下樂團的精神與台灣在地樂團文化。</p>
+        <a href="#about" class="btn">開始探索</a>
+    </section>
+
+    <!-- 核心內容 -->
+    <div class="container" id="about">
+        <h2 class="section-title">核心文化</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=600&q=80" alt="Livehouse">
+                <div class="card-content">
+                    <h3>Livehouse 現場演出</h3>
+                    <p>感受汗水、重低音與吉他破音交織的魔幻時刻，mosh pit（衝撞）與ダイブ（跳水）的熱血文化。</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80" alt="Indie Music">
+                <div class="card-content">
+                    <h3>獨立音樂精神</h3>
+                    <p>不妥協於主流商業市場，用最真實的歌詞與旋律唱出對社會、情感與生活的吶喊。</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80" alt="Band Practice">
+                <div class="card-content">
+                    <h3>練團室秘話</h3>
+                    <p>每週固定報到的地下室、充滿菸味與音箱迴授的空間，是無數經典創作的起點。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer>
+        <p>&copy; 2026 Band Culture Web. All rights reserved. Keep Rocking!</p>
+    </footer>
+
+</body>
+</html><!-- 引入 JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

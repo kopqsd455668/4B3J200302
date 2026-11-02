@@ -1,0 +1,83 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. 導覽列滾動效果
+    const header = document.querySelector('header');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.style.backgroundColor = 'rgba(18, 18, 18, 0.98)';
+            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.8)';
+        } else {
+            header.style.backgroundColor = 'rgba(18, 18, 18, 0.95)';
+            header.style.boxShadow = 'none';
+        }
+    });
+
+    // 2. 平滑滾動至錨點
+    const navLinks = document.querySelectorAll('nav a, .hero a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
+            
+            // 確保是頁面內的錨點連結
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+
+    // 3. 滾動卡片淡入效果 (Scroll Reveal)
+    const cards = document.querySelectorAll('.card');
+    
+    // 先為卡片設定初始隱藏樣式
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    });
+
+    const checkCards = () => {
+        const triggerBottom = window.innerHeight * 0.85;
+
+        cards.forEach(card => {
+            const cardTop = card.getBoundingClientRect().top;
+
+            if (cardTop < triggerBottom) {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }
+        });
+    };
+
+    // 初始化檢查一次，並監聽滾動事件
+    checkCards();
+    window.addEventListener('scroll', checkCards);
+
+    // 4. 彩蛋：點擊 Logo 時的搖滾震動特效
+    const logo = document.querySelector('.logo');
+    
+    logo.style.cursor = 'pointer';
+    logo.addEventListener('click', () => {
+        logo.animate([
+            { transform: 'translate(0, 0)' },
+            { transform: 'translate(-3px, 2px)' },
+            { transform: 'translate(3px, -2px)' },
+            { transform: 'translate(-2px, -2px)' },
+            { transform: 'translate(2px, 2px)' },
+            { transform: 'translate(0, 0)' }
+        ], {
+            duration: 300,
+            iterations: 1
+        });
+        
+        console.log("Keep Rocking! 🎸");
+    });
+});
