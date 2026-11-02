@@ -1,6 +1,6 @@
 /* ==========================================
    CSS 樣式設定 - 樂團文化誌 (Dark Theme)
-   ================================---------- */
+   ========================================== */
 
 :root {
     --bg-color: #121212;
@@ -65,7 +65,7 @@ nav ul li a:hover {
     color: var(--accent-color);
 }
 
-/* 主視覺 Hero Section */
+/* 主視覺 Hero Section (已套用 01.jpg) */
 .hero {
     height: 80vh;
     display: flex;
@@ -74,7 +74,7 @@ nav ul li a:hover {
     align-items: center;
     text-align: center;
     padding: 0 1rem;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('01.jpg') no-repeat center center/cover;
     margin-top: 60px;
 }
 
@@ -188,6 +188,6 @@ footer {
         font-size: 2.5rem;
     }
     nav ul {
-        display: none; /* 可後續擴充漢堡選單 */
+        display: none;
     }
 }
